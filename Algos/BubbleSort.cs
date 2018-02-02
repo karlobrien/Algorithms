@@ -3,25 +3,26 @@ using System;
 namespace Algos
 {
     /// <summary>
-    /// Insertion Sort
+    /// Bubble Sort
+    /// Takes an array of numbers and sorts
     /// Best Case: O(n)
     /// Worst Case O(n^2)
     /// Average Case O(n^2)
-    /// Takes an array of numbers and sorts
     /// </summary>
-    public static class InsertionSort
+    public static class BubbleSort
     {
         public static int[] Sort(int[] numbers)
         {
             int temp;
-            for (int i = 0; i < numbers.Length-1; i++)
+            int length = numbers.Length;
+            for (int i = 0; i < length; i++)
             {
-                for(int j=i+1; j>0; j--)
+                for(int j=i+1; j < length; j++)
                 {
-                    if (numbers[j-1] > numbers[j])
+                    if (numbers[i] > numbers[j])
                     {
-                        temp = numbers[j-1];
-                        numbers[j-1] = numbers[j];
+                        temp = numbers[i];
+                        numbers[i] = numbers[j];
                         numbers[j] = temp;
                     }
                 }

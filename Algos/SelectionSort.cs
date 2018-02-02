@@ -4,6 +4,9 @@ namespace Algos
 {
     /// <summary>
     /// Takes an array of numbers and sorts
+    /// Best Case: O(n)
+    /// Worst Case O(n^2)
+    /// Average Case O(n^2)
     /// </summary>
     public static class SelectionSort
     {
