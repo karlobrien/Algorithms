@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 
 namespace Algos
 {
@@ -29,6 +30,34 @@ namespace Algos
             }
 
             return numbers;
+        }
+
+        /// <summary>
+        /// Bubble Sort with an allocation
+        /// </summary>
+        /// <param name="data"></param>
+        /// <returns>retval</returns>
+        public static List<MarketData> Sort(List<MarketData> data)
+        {
+            List<MarketData> retVal = new List<MarketData>();
+            MarketData temp;
+            int length = data.Count;
+            for (int i = 0; i < length; i++)
+            {
+                for(int j=i+1; j < length; j++)
+                {
+                    if (data[i].Close > data[j].Close)
+                    {
+                        temp = data[i];
+                        data[i] = data[j];
+                        data[j] = temp;
+                    }
+                }
+
+                retVal.Add(data[i]);
+            }
+
+            return retVal;
         }
 
     }
