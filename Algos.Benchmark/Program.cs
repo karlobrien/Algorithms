@@ -13,7 +13,8 @@ namespace Algos.Benchmark
     {
         static void Main(string[] args)
         {
-            var summary = BenchmarkRunner.Run<BasicAlgosBenchmark>();
+            var summary = BenchmarkRunner.Run<AdvancedAlgosBenchmark>();
+
         }
     }
 }
