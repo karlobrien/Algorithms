@@ -14,7 +14,9 @@ namespace Algos.Benchmark
         static void Main(string[] args)
         {
             var summary = BenchmarkRunner.Run<AdvancedAlgosBenchmark>();
+            var result = summary.Reports.All(report => report.GcStats.BytesAllocatedPerOperation == 0);
 
+            Console.WriteLine(result);
         }
     }
 }
