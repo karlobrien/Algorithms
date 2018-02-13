@@ -18,13 +18,15 @@ namespace Algos.Benchmark
         static MarketDataStruct[] MktDataStruct;
         static MarketData[] MktDataObj;
         static Data[] GenericData;
-        const int size = 100;
+        static int[] SwData;
+        const int size = 10000;
 
         public QuickSortBenchmark()
         {
             MktDataStruct = new MarketDataStruct[size];
             MktDataObj = new MarketData[size];
             Data = new int[size];
+            SwData = new int[size];
             GenericData = new Data[size];
 
             Random random = new Random();
@@ -33,6 +35,8 @@ namespace Algos.Benchmark
             {
                 var item = random.Next(0, size);
                 Data[i] = item;
+
+                SwData[i] = item;
 
                 var mkt = new MarketDataStruct{ Close = item };
                 MktDataStruct[i] = mkt;
@@ -48,7 +52,15 @@ namespace Algos.Benchmark
         [Benchmark]
         public static void QuickSortValueType()
         {
+            //var sortedArray = QuickSortByValue.Sort(Data);
             var sortedArray = QuickSortByValue.Sort(Data);
+        }
+
+        [Benchmark]
+        public static void QuickSortSw()
+        {
+            //var sortedArray = QuickSortByValue.Sort(Data);
+            var sortedArray = QuickSortSegwick.QuickSort(Data, 0, Data.Length-1);
         }
 
         [Benchmark]

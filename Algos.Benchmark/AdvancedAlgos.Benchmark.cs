@@ -6,19 +6,17 @@ using BenchmarkDotNet.Attributes.Jobs;
 using BenchmarkDotNet.Running;
 using System.Linq;
 
-
 namespace Algos.Benchmark
 {
     [CoreJob]
     [MemoryDiagnoser]
-
     public class AdvancedAlgosBenchmark
     {
         static int[] Data;
         static MarketDataStruct[] MktDataStruct;
         static MarketData[] MktDataObj;
         static Data[] GenericData;
-        const int size = 100000;
+        const int size = 1000000;
 
         public AdvancedAlgosBenchmark()
         {
