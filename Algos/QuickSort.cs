@@ -104,9 +104,40 @@ namespace Algos
 
     public static class QuickSortByStruct
     {
-        public static MarketDataStruct[] Sort(MarketDataStruct[] numbers)
+        public static MarketDataStruct[] QuickSort(MarketDataStruct[] numbers, int low, int high)
         {
+            int pivot_loc = 0;
+            if (low < high)
+            {
+                pivot_loc = Partition(numbers, low, high);
+                QuickSort(numbers, low, pivot_loc - 1);
+                QuickSort(numbers, pivot_loc + 1, high);
+            }
+
             return numbers;
+        }
+
+        private static int Partition(MarketDataStruct[] numbers, int low, int high)
+        {
+            var pivot = numbers[high];
+            int i = low - 1;
+            for(int j = low; j < high; j ++)
+            {
+                if (numbers[j].Close < pivot.Close)
+                {
+                    i++;
+                    Swap(numbers, i, j);
+                }
+            }
+            Swap(numbers, i+1, high);
+            return i + 1;
+        }
+
+        private static void Swap(MarketDataStruct[] items, int a, int b)
+        {
+            var temp = items[a];
+            items[a] = items[b];
+            items[b] = temp;
         }
     }
 

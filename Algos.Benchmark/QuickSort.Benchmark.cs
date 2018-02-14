@@ -66,7 +66,7 @@ namespace Algos.Benchmark
         [Benchmark]
         public static void QuickSortStruct()
         {
-            var sortedArray = QuickSortByStruct.Sort(MktDataStruct);
+            var sortedArray = QuickSortByStruct.QuickSort(MktDataStruct, 0, MktDataStruct.Length);
         }
 
         [Benchmark]
