@@ -40,6 +40,24 @@ namespace Algos.Tests
 
         }
 
+        [Fact]
+        public void Validate_Data_HeapSort()
+        {
+            long size = 100;
+            int[] items = new int[size];
+            Random random = new Random();
+
+            for (var i = 0; i < size; i++)
+                items[i] = random.Next(0, 100);
+
+            var sortedArray = HeapSortByValue.HeapSort(items);
+            //var sortedArray = QuickSortSegwick.QuickSort(items, 0, items.Length - 1);
+            for(int i = 1; i < sortedArray.Length; i++)
+                Assert.True(sortedArray[i-1] <= sortedArray[i]);
+
+        }
+
+
         private void Print(int[] data)
         {
             Console.WriteLine("-----------");

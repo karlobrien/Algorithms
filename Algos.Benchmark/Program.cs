@@ -14,8 +14,9 @@ namespace Algos.Benchmark
         static void Main(string[] args)
         {
             //var mergeSummary = BenchmarkRunner.Run<AdvancedAlgosBenchmark>();
+            //var quickSummary = BenchmarkRunner.Run<QuickSortBenchmark>();
+            var heapSummary = BenchmarkRunner.Run<HeapSortBenchmark>();
 
-            var quickSummary = BenchmarkRunner.Run<QuickSortBenchmark>();
             //var result = summary.Reports.All(report => report.GcStats.BytesAllocatedPerOperation == 0);
 
             //Console.WriteLine(result);
